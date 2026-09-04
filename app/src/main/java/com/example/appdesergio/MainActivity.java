@@ -1,5 +1,6 @@
 package com.example.appdesergio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,19 +31,19 @@ public class MainActivity extends AppCompatActivity {
 
         Button b=findViewById(R.id.Button);
         TextView tv=findViewById(R.id.TextView);
-        EditText edmin= findViewById(R.id.edmin);
-        EditText edmax= findViewById(R.id.edmax);
+        EditText edMin= findViewById(R.id.edmin);
+        EditText edMax= findViewById(R.id.edmax);
 
         b.setOnClickListener(view -> {
             //contador = (int)(Math.random() *100);
-            String maxStr =edmax.getText().toString();
-            String minStr =edmin.getText().toString();
+            String maxStr =edMax.getText().toString();
+            String minStr =edMin.getText().toString();
 
-            if(minStr.isEmpty){
+            if(minStr.isEmpty()){
                 edMin.setError("Informe o valor mínimo");
                 return;
             }
-            if(maxStr.isEmpty){
+            if(maxStr.isEmpty()){
                 edMax.setError("Informe o valor máximo");
                 return;
             }
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
             tv.setText(Integer.toString(r));
             b.setText("Plin");
 
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            intent.putExtra("valor", r);
+            startActivity(intent);
         });
 
 
