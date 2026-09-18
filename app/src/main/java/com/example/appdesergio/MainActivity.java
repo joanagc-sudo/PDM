@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.aplicativo.R;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,41 +31,20 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button b=findViewById(R.id.Button);
-        TextView tv=findViewById(R.id.TextView);
-        EditText edMin= findViewById(R.id.edmin);
-        EditText edMax= findViewById(R.id.edmax);
+        Integer[] imagens = new Integer[]{
+                R.drawable.cachorro,
+                R.drawable.gardem,
+                R.drawable.happy,
+                R.drawable.patinho,
+                R.drawable.porquinho
+        };
 
-        b.setOnClickListener(view -> {
-            //contador = (int)(Math.random() *100);
-            String maxStr =edMax.getText().toString();
-            String minStr =edMin.getText().toString();
+        Button botaoVoltar, botaoAvancar;
+        botaoVoltar = findViewById(R.id.btnAnterior);
+        botaoAvancar =  findViewById(R.id.btnProximo);
 
-            if(minStr.isEmpty()){
-                edMin.setError("Informe o valor mínimo");
-                return;
-            }
-            if(maxStr.isEmpty()){
-                edMax.setError("Informe o valor máximo");
-                return;
-            }
-
-            int min = Integer.parseInt(minStr);
-            int max = Integer.parseInt(maxStr);
-
-            Random random= new Random();
-            int r = (random.nextInt(max-min)) + min;
-
-            tv.setText(Integer.toString(r));
-            b.setText("Plin");
-
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-            intent.putExtra("valor", r);
-            startActivity(intent);
+        botaoAvancar.setOnClickListener(View v ->{
+            imageView.setImageResource(imagens[posicao]);
         });
-
-
-
-
     }
 }

@@ -9,6 +9,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.aplicativo.R;
+
 public class MainActivity2 extends AppCompatActivity {
 
     @Override
@@ -22,7 +24,7 @@ public class MainActivity2 extends AppCompatActivity {
             return insets;
         });
 
-        getIntent().getExtras().getInt("valor");
+        int r = getIntent().getExtras().getInt("valor");
         TextView tv=findViewById(R.id.textView);
         tv.setText(Integer.toString(r));
     }
