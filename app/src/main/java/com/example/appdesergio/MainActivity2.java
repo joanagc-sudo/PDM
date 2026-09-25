@@ -22,7 +22,7 @@ public class MainActivity2 extends AppCompatActivity {
             return insets;
         });
 
-        getIntent().getExtras().getInt("valor");
+        int r = getIntent().getExtras().getInt("valor");
         TextView tv=findViewById(R.id.textView);
         tv.setText(Integer.toString(r));
     }
