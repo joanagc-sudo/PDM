@@ -67,8 +67,12 @@
         android:ems="10"
         android:inputType="number"
         android:textColorLink="#BFC1C6"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="207dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.299" />
 
     <EditText
         android:id="@+id/edPeso"
@@ -78,8 +82,12 @@
         android:inputType="number"
         android:textColor="#486744"
         android:textColorLink="#FDF9FC"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="108dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
 
     <Button
         android:id="@+id/btnCalcular"
@@ -88,7 +96,11 @@
         android:backgroundTint="#496845"
         android:text="Calcular"
         android:textColorLink="#D3CFCF"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="270dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.386" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
