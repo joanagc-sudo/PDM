@@ -1,9 +1,10 @@
 package com.example.appdesergio;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.EditText;
 
 
 import androidx.activity.EdgeToEdge;
@@ -15,44 +16,42 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
 
-    int posicao = 0;
-    Button botaoAvancar;
-    Button botaoVoltar;
-    ImageView imageView;
+
+    EditText edPeso;
+    EditText edAltura;
+    Button btnCalcular;
+    double imc = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        botaoVoltar = findViewById(R.id.btnAnterior);
-        botaoAvancar = findViewById(R.id.btnProximo);
-        imageView = findViewById(R.id.imageView);
+        btnCalcular = findViewById(R.id.btnCalcular);
+        edAltura = findViewById(R.id.edAltura);
+        edPeso = findViewById(R.id.edPeso);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        Integer[] images = new Integer[]{
-                R.drawable.cachorro,
-                R.drawable.gardem,
-                R.drawable.happy,
-                R.drawable.patinho,
-                R.drawable.porquinho
-        };
+        btnCalcular.setOnClickListener( v -> {
+            String strPeso =edPeso.getText().toString();
+            String strAltura =edAltura.getText().toString();
 
-        botaoAvancar.setOnClickListener( v -> {
-            if(posicao== images.length-1) posicao = 0;
-            posicao++;
-            imageView.setImageResource(images[posicao]);
+            double peso = Double.parseDouble(strPeso);
+            double altura = Double.parseDouble(strAltura);
 
-        });
+            imc = peso/(altura*altura);
 
-        botaoVoltar.setOnClickListener( v -> {
+            Intent intent = new Intent(MainActivity.this, Calcular.class);
 
-            posicao--;
-            if(posicao < 0) posicao = images.length-1;
-            imageView.setImageResource(images[posicao]);
+            intent.putExtra("imc", imc);
+            intent.putExtra("peso", peso);
+            intent.putExtra("altura", altura);
+
+            startActivity(intent);
 
         });
     }

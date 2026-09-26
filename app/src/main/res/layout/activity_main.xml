@@ -51,7 +51,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Altura (m)"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.255" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/edAltura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -71,7 +71,7 @@
         tools:layout_editor_absoluteY="207dp" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/edPeso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -82,11 +82,11 @@
         tools:layout_editor_absoluteY="108dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCalcular"
         android:layout_width="209dp"
         android:layout_height="52dp"
         android:backgroundTint="#496845"
-        android:text="Button"
+        android:text="Calcular"
         android:textColorLink="#D3CFCF"
         tools:layout_editor_absoluteX="101dp"
         tools:layout_editor_absoluteY="270dp" />
