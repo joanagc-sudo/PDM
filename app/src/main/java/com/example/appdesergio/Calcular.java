@@ -49,6 +49,7 @@ public class Calcular extends AppCompatActivity {
                 R.drawable.obesidade2,
                 R.drawable.obesidade3,
         };
+        ImageView imageView = findViewById(R.id.imageView2);
 
         double altura = getIntent().getExtras().getDouble("altura");
         TextView textAltura =findViewById(R.id.txtAltura);
@@ -59,8 +60,8 @@ public class Calcular extends AppCompatActivity {
         textPeso.setText(Double.toString(peso));
 
         double imc = getIntent().getExtras().getDouble("imc");
-        TextView textImc =findViewById(R.id.txtIMC);
-        textPeso.setText(Double.toString(imc));
+        TextView txtIMC =findViewById(R.id.txtIMC);
+        txtIMC.setText(String.format("%.2f", imc));
 
         TextView textClass = findViewById(R.id.txtClass);
 
@@ -87,6 +88,8 @@ public class Calcular extends AppCompatActivity {
         else if(imc>=40) {
             textClass.setText("Obesidade grau 3");
             imageView.setImageResource(images[6]);
+        } else{
+            imageView.setImageResource(images[0]);
         }
 
     }
