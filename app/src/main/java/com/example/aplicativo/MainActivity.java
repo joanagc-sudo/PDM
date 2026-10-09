@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         btnInserir = findViewById(R.id.btnInserir);
         edNome = findViewById(R.id.edNome);
         nomes = new ArrayList<>();
+        ListView lv = findViewById(R.id.listView);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -37,17 +38,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        ListView lv = findViewById(R.id.listView);
-
         ArrayAdapter <String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.item_lista, R.id.textView, nomes);
-        lv.setAdapter(adapter);
-
         lv.setAdapter(adapter);
 
         btnInserir.setOnClickListener( v -> {
 
             String nome = edNome.getText().toString();
             nomes.add(nome);
+            adapter.notifyDataSetChanged();
 
             lv.setOnItemClickListener((parent, view, position, id) -> {
                     Toast.makeText(getApplicationContext(), nomes.get(position), Toast.LENGTH_LONG).show();
